@@ -11,7 +11,7 @@ struct OBWelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hello World!")
+                Text("Hello, World!")
                    
                 Text("Yong")
                     .padding(.bottom, 10)
