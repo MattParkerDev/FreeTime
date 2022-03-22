@@ -9,40 +9,20 @@ import SwiftUI
 
 struct OBSleepView: View {
     var body: some View {
-       // NavigationView {
         VStack {
-                Text("To begin")
-                    .navigationTitle("Sleep")
+            Text("To begin")
+                .navigationTitle("Sleep")
+                .navigationBarTitleDisplayMode(.large)
+            Button(action: {}) {
                 NavigationLink(destination: OBFinalView()) {
                     Text("Next")
-                        .font(.system(size: 38))
-                        .shadow(radius: 5)
-                        .padding(.top, 10)
-                        .padding(.leading, 100)
-                        .padding(.trailing, 100)
-                        .padding(.bottom, 10)
-                      
-                        .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue))
-                        .shadow(radius: 10)
-                       // .overlay(
-                     //       RoundedRectangle(cornerRadius: 16)
-                   //             .stroke(Color.black, lineWidth: 4)
-                 //               .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue))
-                 //       )
-                        .foregroundColor(.black)
-                        
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(Color.white)
+                        .background(Color.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.black, lineWidth: 4)
-                    .background(RoundedRectangle(cornerRadius: 15).fill(Color.blue))
-                    .frame(width: 300, height: 60)
-                    .overlay( Text("Hello")
-                                .font(.system(size:30))
-                                .shadow(radius: 10)
-                    )
-                    .shadow(radius: 10)
             }
-     //   }
+        }
     }
 }
 

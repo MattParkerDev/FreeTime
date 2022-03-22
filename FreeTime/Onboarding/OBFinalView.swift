@@ -15,14 +15,11 @@ struct OBFinalView: View {
             Spacer()
             Button(action: {}) {
                 Text("Get Started")
-                    
+                    .frame(width: 300, height: 50)
+                    .foregroundColor(Color.white)
+                    .background(Color.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-             .frame(width: 300, height: 50)
-            .foregroundColor(Color.white)
-            .background(Color.blue)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
-            
         }
     }
 }

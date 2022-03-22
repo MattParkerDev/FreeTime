@@ -1,5 +1,5 @@
 //
-//  OnboardingView.swift
+//  OBWelcomeView.swift
 //  FreeTime
 //
 //  Created by Matthew Parker on 20/3/22.
@@ -11,19 +11,31 @@ struct OBWelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hello, World!")
-                   
-                Text("Yong")
-                    .padding(.bottom, 10)
-                    .padding(.top, 10)
-                NavigationLink(destination: OBSleepView()) {
-                    Text("Test")
+                Text("Welcome to Free Time!")
+                    .bold()
+                    .font(.system(size:28))
+                Spacer()
+                    .navigationBarTitleDisplayMode(.inline)
+                Image(systemName: "clock")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 190, height: 190)
+                Spacer()
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo blandit, mattis est id, pretium diam.")
+                    .padding(.leading, 20)
+                    .padding(.trailing, 20)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                Button(action: {}) {
+                    NavigationLink(destination: OBSleepView()) {
+                        Text("Next")
+                            .frame(width: 300, height: 50)
+                            .foregroundColor(Color.white)
+                            .background(Color.blue)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
                 }
-                    
-                .navigationTitle("Welcome!")
             }
-            
-            Text("test")
         }
     }
 }
