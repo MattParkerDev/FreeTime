@@ -1,22 +1,22 @@
 //
-//  OBSleepView.swift
+//  OBChoresView.swift
 //  FreeTime
 //
-//  Created by Matthew Parker on 20/3/22.
+//  Created by Matthew Parker on 25/3/22.
 //
 
 import SwiftUI
 
-struct OBSleepView: View {
+struct OBChoresView: View {
     var body: some View {
         VStack {
             Spacer()
             Text("To begin")
-                .navigationTitle("Sleep")
+                .navigationTitle("Chores")
                 .navigationBarTitleDisplayMode(.large)
             Spacer()
             Button(action: {}) {
-                NavigationLink(destination: OBWorkView()) {
+                NavigationLink(destination: OBFinalView()) {
                     Text("Next")
                         .frame(width: 300, height: 50)
                         .foregroundColor(Color.white)
@@ -29,8 +29,8 @@ struct OBSleepView: View {
     }
 }
 
-struct OBSleepView_Previews: PreviewProvider {
+struct OBChoresView_Previews: PreviewProvider {
     static var previews: some View {
-        OBSleepView()
+        OBChoresView()
     }
 }

@@ -20,6 +20,7 @@ struct OBFinalView: View {
                     .background(Color.blue)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+            .padding()
         }
     }
 }

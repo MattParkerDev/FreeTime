@@ -16,6 +16,8 @@
 		5563D76F27E6F69200AA8A0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5563D76E27E6F69200AA8A0F /* Assets.xcassets */; };
 		5563D77227E6F69200AA8A0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5563D77127E6F69200AA8A0F /* Preview Assets.xcassets */; };
 		5563D77927E701D500AA8A0F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563D77827E701D500AA8A0F /* MainView.swift */; };
+		55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */; };
+		55DCBC3D27EDE00A00A45E0D /* OBChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		5563D76E27E6F69200AA8A0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5563D77127E6F69200AA8A0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5563D77827E701D500AA8A0F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBWorkView.swift; sourceTree = "<group>"; };
+		55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBChoresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			children = (
 				55168AA827E715D9009AEF53 /* OBWelcomeView.swift */,
 				55168AAB27E72F0C009AEF53 /* OBSleepView.swift */,
+				55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */,
+				55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */,
 				55168AAD27E73A30009AEF53 /* OBFinalView.swift */,
 			);
 			path = Onboarding;
@@ -162,10 +168,12 @@
 			files = (
 				5563D76D27E6F69100AA8A0F /* HomeView.swift in Sources */,
 				55168AA727E704E5009AEF53 /* SettingsView.swift in Sources */,
+				55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */,
 				5563D77927E701D500AA8A0F /* MainView.swift in Sources */,
 				55168AA927E715D9009AEF53 /* OBWelcomeView.swift in Sources */,
 				5563D76B27E6F69100AA8A0F /* FreeTimeApp.swift in Sources */,
 				55168AAC27E72F0C009AEF53 /* OBSleepView.swift in Sources */,
+				55DCBC3D27EDE00A00A45E0D /* OBChoresView.swift in Sources */,
 				55168AAE27E73A30009AEF53 /* OBFinalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

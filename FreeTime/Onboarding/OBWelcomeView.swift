@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OBWelcomeView: View {
+    @State var shouldShowOnboarding: Bool = true
     var body: some View {
         NavigationView {
             VStack {
@@ -35,6 +36,7 @@ struct OBWelcomeView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
+                .padding()
             }
         }
     }
@@ -42,6 +44,11 @@ struct OBWelcomeView: View {
 
 struct OBWelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        OBWelcomeView()
+        Group {
+            OBWelcomeView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
+            OBWelcomeView()
+                .previewDevice(PreviewDevice(rawValue: "iPod touch (7th generation)"))
+        }
     }
 }
