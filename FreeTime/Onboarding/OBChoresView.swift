@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OBChoresView: View {
+    @Binding var shouldShowOnboarding: Bool
     var body: some View {
         VStack {
             Spacer()
@@ -16,7 +17,7 @@ struct OBChoresView: View {
                 .navigationBarTitleDisplayMode(.large)
             Spacer()
             Button(action: {}) {
-                NavigationLink(destination: OBFinalView()) {
+                NavigationLink(destination: OBFinalView(shouldShowOnboarding: $shouldShowOnboarding)) {
                     Text("Next")
                         .frame(width: 300, height: 50)
                         .foregroundColor(Color.white)
@@ -31,6 +32,6 @@ struct OBChoresView: View {
 
 struct OBChoresView_Previews: PreviewProvider {
     static var previews: some View {
-        OBChoresView()
+        OBChoresView(shouldShowOnboarding: .constant(true))
     }
 }

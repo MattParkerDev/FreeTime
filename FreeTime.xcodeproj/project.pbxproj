@@ -79,8 +79,8 @@
 			children = (
 				5563D76A27E6F69100AA8A0F /* FreeTimeApp.swift */,
 				5563D77827E701D500AA8A0F /* MainView.swift */,
-				55168AA627E704E5009AEF53 /* SettingsView.swift */,
 				5563D76C27E6F69100AA8A0F /* HomeView.swift */,
+				55168AA627E704E5009AEF53 /* SettingsView.swift */,
 				55168AAA27E72DC9009AEF53 /* Onboarding */,
 				5563D76E27E6F69200AA8A0F /* Assets.xcassets */,
 				5563D77027E6F69200AA8A0F /* Preview Content */,

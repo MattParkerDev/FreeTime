@@ -10,11 +10,14 @@ import SwiftUI
 
 
 struct HomeView: View {
+    @Binding var sleepHours: String
     var body: some View {
         NavigationView {
-            ZStack {
+            VStack {
+                Spacer()
+                Text("Hours of Sleep: " + sleepHours)
                 Color.blue
-                    .padding()
+                    .frame(width: 300, height: 400)
             }
             .navigationTitle("Home")
             
@@ -24,6 +27,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(sleepHours: .constant(""))
     }
 }

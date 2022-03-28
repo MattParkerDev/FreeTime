@@ -11,21 +11,24 @@ import SwiftUI
 // The main view of FreeTime, using nagivation tab view
 struct MainView: View {
     @AppStorage("shouldShowOnboarding") var shouldShowOnboarding: Bool = true
+    @AppStorage("sleepHours") var sleepHours: String = ""
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(sleepHours: $sleepHours)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
-            SettingsView()
+            SettingsView(shouldShowOnboarding: $shouldShowOnboarding)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
         }
         // Calls onboarding fullscreen cover on first run
-        .fullScreenCover(isPresented: $shouldShowOnboarding, content: {OBWelcomeView()} )
+        .fullScreenCover(isPresented: $shouldShowOnboarding, content: {
+            OBWelcomeView(shouldShowOnboarding: $shouldShowOnboarding, sleepHours: $sleepHours)
+            })
     }
 }
 
