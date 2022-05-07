@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct OBWelcomeView: View {
-    @Binding var shouldShowOnboarding: Bool
-    @Binding var sleepHours: String
+    @EnvironmentObject var userData: UserData
     var body: some View {
         NavigationView {
             VStack {
@@ -29,7 +28,7 @@ struct OBWelcomeView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 Button(action: {}) {
-                    NavigationLink(destination: OBSleepView(shouldShowOnboarding: $shouldShowOnboarding, sleepHours: $sleepHours)) {
+                    NavigationLink(destination: OBSleepView()) {
                         Text("Next")
                             .frame(width: 300, height: 50)
                             .foregroundColor(Color.white)
@@ -47,10 +46,9 @@ struct OBWelcomeView_Previews: PreviewProvider {
     static var previews: some View {
         
         Group {
-            OBWelcomeView(shouldShowOnboarding: .constant(true), sleepHours: .constant(""))
+            OBWelcomeView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-            OBWelcomeView(shouldShowOnboarding: .constant(true), sleepHours: .constant(""))
-                .previewDevice(PreviewDevice(rawValue: "iPod touch (7th generation)"))
+
         }
     }
 }

@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct OBWorkView: View {
-    @Binding var shouldShowOnboarding: Bool
+    @EnvironmentObject var userData: UserData
     var body: some View {
         VStack {
             Spacer()
-            Text("To begin")
+            Text("Please enter how many hours you work per week. Please include travel time to and from work.")
                 .navigationTitle("Work")
                 .navigationBarTitleDisplayMode(.large)
+            TextField("Enter your work hours", value: $userData.workHoursWeekly, format: .number)
+                .padding()
             Spacer()
             Button(action: {}) {
-                NavigationLink(destination: OBChoresView(shouldShowOnboarding: $shouldShowOnboarding)) {
+                NavigationLink(destination: OBChoresView()) {
                     Text("Next")
                         .frame(width: 300, height: 50)
                         .foregroundColor(Color.white)
@@ -32,6 +34,6 @@ struct OBWorkView: View {
 
 struct OBWorkView_Previews: PreviewProvider {
     static var previews: some View {
-        OBWorkView(shouldShowOnboarding: .constant(true))
+        OBWorkView()
     }
 }

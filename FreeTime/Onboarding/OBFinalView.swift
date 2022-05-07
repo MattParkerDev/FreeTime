@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct OBFinalView: View {
-    @Binding var shouldShowOnboarding: Bool
+    @EnvironmentObject var userData: UserData
     var body: some View {
         VStack {
             Spacer()
             Text("Welcome to Free Time!")
             Spacer()
             Button(action: {
-                shouldShowOnboarding.toggle()
-            }) {
-                Text("Get Started")
+                userData.shouldShowOnboarding = false
+            }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)
                     .background(Color.blue)
@@ -25,10 +24,11 @@ struct OBFinalView: View {
             }
             .padding()
         }
+        .onDisappear(perform: userData.save)
     }
 }
 struct OBFinalView_Previews: PreviewProvider {
     static var previews: some View {
-        OBFinalView(shouldShowOnboarding: .constant(true))
+        OBFinalView()
     }
 }

@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct OBSleepView: View {
-    @Binding var shouldShowOnboarding: Bool
-    @Binding var sleepHours: String
+    @EnvironmentObject var userData: UserData
     var body: some View {
         VStack {
             Spacer()
-            Text("Please enter how much sleep you get on average per night")
+            Text("Please enter how much sleep you get on average per night:")
                 .padding()
                 .navigationTitle("Sleep")
                 .navigationBarTitleDisplayMode(.large)
-            TextField("Test", text: $sleepHours)
+            TextField("Enter your sleep Hours", value: $userData.sleepHoursDaily, format: .number)
                 .padding()
             Spacer()
             Button(action: {}) {
-                NavigationLink(destination: OBWorkView(shouldShowOnboarding: $shouldShowOnboarding)) {
+                NavigationLink(destination: OBWorkView()) {
                     Text("Next")
                         .frame(width: 300, height: 50)
                         .foregroundColor(Color.white)
@@ -36,6 +35,6 @@ struct OBSleepView: View {
 
 struct OBSleepView_Previews: PreviewProvider {
     static var previews: some View {
-        OBSleepView(shouldShowOnboarding: .constant(true), sleepHours: .constant(""))
+        OBSleepView()
     }
 }

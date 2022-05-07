@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var shouldShowOnboarding: Bool
+    @EnvironmentObject var userData: UserData
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     Button(action: {
-                        shouldShowOnboarding.toggle()
+                        userData.shouldShowOnboarding = true;
+                        userData.save()
                     }, label: {Text("Show Onboarding")})
                     Text("Hello World")
                     Text("Hello World")
@@ -27,6 +28,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(shouldShowOnboarding: .constant(true))
+        SettingsView()
     }
 }

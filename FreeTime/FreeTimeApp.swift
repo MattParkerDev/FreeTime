@@ -12,6 +12,7 @@ struct FreeTimeApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(UserData())
         }
     }
 }

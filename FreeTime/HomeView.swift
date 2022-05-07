@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  FreeTime
 //
 //  Created by Matthew Parker on 20/3/22.
@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-
-
 struct HomeView: View {
-    @Binding var sleepHours: String
+    @EnvironmentObject var userData: UserData
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("Hours of Sleep: " + sleepHours)
-                Color.blue
-                    .frame(width: 300, height: 400)
+                Text("Hours of Sleep: " + String(userData.sleepHoursDaily))
+                Text("Hours of Work: " + String(userData.workHoursWeekly))
+                Text("Hours of Chores: " + String(userData.choreHoursWeekly))
+                PieChartView()
+                    .padding()
+                Spacer()
             }
             .navigationTitle("Home")
             
@@ -27,6 +28,8 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(sleepHours: .constant(""))
+        HomeView()
+            .preferredColorScheme(.dark)
+            .environmentObject(UserData())
     }
 }
