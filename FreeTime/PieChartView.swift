@@ -15,6 +15,7 @@ struct PieChartView: View {
             Text("Sleep Hours: " + String(userData.sleepHoursDaily))
             Text("Work Hours: " + String(userData.workHoursWeekly))
             Text("Chore Hours: " + String(userData.choreHoursWeekly))
+            Text("Free Hours: " + String(userData.freeHoursWeekly))
         }
     }
 }

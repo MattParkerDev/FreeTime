@@ -28,6 +28,8 @@ class UserData: ObservableObject {
     @Published var workHoursWeekly: Double
     @Published var choreHoursWeekly: Double
     @Published var shouldShowOnboarding: Bool
+    @Published var sleepHoursWeekly: Double
+    @Published var freeHoursWeekly: Double
     
     init() {
         self.sleepHoursDaily = UserDefaults.standard.double(forKey: "sleepHoursDaily")
@@ -39,13 +41,20 @@ class UserData: ObservableObject {
         else {
             self.shouldShowOnboarding = UserDefaults.standard.bool(forKey: "shouldShowOnboarding")
         }
-        
+        self.sleepHoursWeekly = UserDefaults.standard.double(forKey: "sleepHoursDaily") * 7
+        self.freeHoursWeekly = 0
+        self.freeHoursWeekly = calcFreeTime()
     }
     func save() {
         UserDefaults.standard.set(sleepHoursDaily, forKey: "sleepHoursDaily")
         UserDefaults.standard.set(workHoursWeekly, forKey: "workHoursWeekly")
         UserDefaults.standard.set(choreHoursWeekly, forKey: "choreHoursWeekly")
         UserDefaults.standard.set(shouldShowOnboarding, forKey: "shouldShowOnboarding")
+    }
+    func calcFreeTime() -> Double {
+        var freeHours: Double
+        freeHours = 168 - self.sleepHoursWeekly - self.workHoursWeekly - self.choreHoursWeekly
+        return freeHours
     }
 }
 
