@@ -9,20 +9,6 @@ import Foundation
 
 
 
-struct FreeTime {
-    
-    var sleepHours: Int = 8
-    var workHours: Int = 36
-    var choreHours: Int = 5
-    
-    func calcFreeTime(sleepHours: Int, workHours: Int, choreHours: Int) -> Int {
-        var freeHours: Int
-        freeHours = 168 - sleepHours - workHours - choreHours
-        print(freeHours)
-        return freeHours
-    }
-}
-
 class UserData: ObservableObject {
     @Published var sleepHoursDaily: Double
     @Published var workHoursWeekly: Double

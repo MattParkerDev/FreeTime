@@ -16,7 +16,9 @@
 		5563D76F27E6F69200AA8A0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5563D76E27E6F69200AA8A0F /* Assets.xcassets */; };
 		5563D77227E6F69200AA8A0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5563D77127E6F69200AA8A0F /* Preview Assets.xcassets */; };
 		5563D77927E701D500AA8A0F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563D77827E701D500AA8A0F /* MainView.swift */; };
-		5577C3F327FBE160006DB757 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577C3F227FBE160006DB757 /* PieChartView.swift */; };
+		5575CCCA28279F1A005B2550 /* PieSliceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575CCC928279F1A005B2550 /* PieSliceData.swift */; };
+		5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575CCCB28279F97005B2550 /* PieChartView.swift */; };
+		5577C3F327FBE160006DB757 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577C3F227FBE160006DB757 /* PieSliceView.swift */; };
 		557FFB3527FA8BBE006E78A2 /* FreeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557FFB3427FA8BBE006E78A2 /* FreeTime.swift */; };
 		55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */; };
 		55DCBC3D27EDE00A00A45E0D /* OBChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */; };
@@ -33,7 +35,9 @@
 		5563D76E27E6F69200AA8A0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5563D77127E6F69200AA8A0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5563D77827E701D500AA8A0F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		5577C3F227FBE160006DB757 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		5575CCC928279F1A005B2550 /* PieSliceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceData.swift; sourceTree = "<group>"; };
+		5575CCCB28279F97005B2550 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		5577C3F227FBE160006DB757 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		557FFB3427FA8BBE006E78A2 /* FreeTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FreeTime.swift; path = Onboarding/FreeTime.swift; sourceTree = "<group>"; };
 		55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBWorkView.swift; sourceTree = "<group>"; };
 		55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBChoresView.swift; sourceTree = "<group>"; };
@@ -85,8 +89,8 @@
 				5563D76A27E6F69100AA8A0F /* FreeTimeApp.swift */,
 				5563D77827E701D500AA8A0F /* MainView.swift */,
 				5563D76C27E6F69100AA8A0F /* HomeView.swift */,
-				5577C3F227FBE160006DB757 /* PieChartView.swift */,
 				55168AA627E704E5009AEF53 /* SettingsView.swift */,
+				5575CCC828279EDA005B2550 /* PieChart */,
 				55168AAA27E72DC9009AEF53 /* Onboarding */,
 				5563D76E27E6F69200AA8A0F /* Assets.xcassets */,
 				5563D77027E6F69200AA8A0F /* Preview Content */,
@@ -100,6 +104,16 @@
 				5563D77127E6F69200AA8A0F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5575CCC828279EDA005B2550 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				5577C3F227FBE160006DB757 /* PieSliceView.swift */,
+				5575CCCB28279F97005B2550 /* PieChartView.swift */,
+				5575CCC928279F1A005B2550 /* PieSliceData.swift */,
+			);
+			path = PieChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,11 +192,13 @@
 			files = (
 				5563D76D27E6F69100AA8A0F /* HomeView.swift in Sources */,
 				55168AA727E704E5009AEF53 /* SettingsView.swift in Sources */,
+				5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */,
 				55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */,
 				5563D77927E701D500AA8A0F /* MainView.swift in Sources */,
-				5577C3F327FBE160006DB757 /* PieChartView.swift in Sources */,
+				5577C3F327FBE160006DB757 /* PieSliceView.swift in Sources */,
 				55168AA927E715D9009AEF53 /* OBWelcomeView.swift in Sources */,
 				5563D76B27E6F69100AA8A0F /* FreeTimeApp.swift in Sources */,
+				5575CCCA28279F1A005B2550 /* PieSliceData.swift in Sources */,
 				557FFB3527FA8BBE006E78A2 /* FreeTime.swift in Sources */,
 				55168AAC27E72F0C009AEF53 /* OBSleepView.swift in Sources */,
 				55DCBC3D27EDE00A00A45E0D /* OBChoresView.swift in Sources */,
