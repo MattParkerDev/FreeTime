@@ -14,4 +14,5 @@ struct PieSliceData: Identifiable {
     var endAngle: Angle
     var text: String
     var color: Color
+    var label: String
 }

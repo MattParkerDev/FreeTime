@@ -16,7 +16,16 @@ struct PieChartView: View {
                 ForEach(self.pieSlices) { slice in
                     PieSliceView(pieSliceData:slice)
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
+                Circle()
+                    .fill(Color(UIColor.systemBackground))
+                    .frame(width: geometry.size.width / 1.7, height: geometry.size.width / 1.7)
+                VStack {
+                    Text("Total")
+                        .font(.title)
+                        .foregroundColor(Color.gray)
+                    Text("168 Hrs")
+                        .font(.title)
+                }
             }
             .onAppear{
                 let maxTime: Double = 168
@@ -40,7 +49,8 @@ struct PieChartView: View {
                         startAngle: Angle(degrees: startAngle),
                         endAngle: Angle(degrees: startAngle + percentage * 360),
                         text: label,
-                        color: colour
+                        color: colour,
+                        label: String(Int(round(percentage * 100))) + "%"
                     )
                     pieSlices.append(data)
                     startAngle += percentage * 360
@@ -53,6 +63,7 @@ struct PieChartView: View {
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
         PieChartView()
+            .preferredColorScheme(.dark)
             .environmentObject(UserData())
     }
 }

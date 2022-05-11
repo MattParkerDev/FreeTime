@@ -13,12 +13,10 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("Weekly Hours")
-                Text("Hours of Sleep: " + String(userData.sleepHoursWeekly))
-                Text("Hours of Work: " + String(userData.workHoursWeekly))
-                Text("Hours of Chores: " + String(userData.choreHoursWeekly))
                 PieChartView()
                     .padding()
+                    .aspectRatio(1, contentMode: .fit)
+                PieLegendView()
                 Spacer()
             }
             .navigationTitle("Home")

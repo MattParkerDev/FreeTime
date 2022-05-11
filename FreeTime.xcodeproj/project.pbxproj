@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5510B1EB282BD29F0016A409 /* PieLegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510B1EA282BD29F0016A409 /* PieLegendView.swift */; };
 		55168AA727E704E5009AEF53 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55168AA627E704E5009AEF53 /* SettingsView.swift */; };
 		55168AA927E715D9009AEF53 /* OBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55168AA827E715D9009AEF53 /* OBWelcomeView.swift */; };
 		55168AAC27E72F0C009AEF53 /* OBSleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55168AAB27E72F0C009AEF53 /* OBSleepView.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5510B1EA282BD29F0016A409 /* PieLegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieLegendView.swift; sourceTree = "<group>"; };
 		55168AA627E704E5009AEF53 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		55168AA827E715D9009AEF53 /* OBWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBWelcomeView.swift; sourceTree = "<group>"; };
 		55168AAB27E72F0C009AEF53 /* OBSleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSleepView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				5577C3F227FBE160006DB757 /* PieSliceView.swift */,
 				5575CCCB28279F97005B2550 /* PieChartView.swift */,
+				5510B1EA282BD29F0016A409 /* PieLegendView.swift */,
 				5575CCC928279F1A005B2550 /* PieSliceData.swift */,
 			);
 			path = PieChart;
@@ -192,6 +195,7 @@
 			files = (
 				5563D76D27E6F69100AA8A0F /* HomeView.swift in Sources */,
 				55168AA727E704E5009AEF53 /* SettingsView.swift in Sources */,
+				5510B1EB282BD29F0016A409 /* PieLegendView.swift in Sources */,
 				5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */,
 				55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */,
 				5563D77927E701D500AA8A0F /* MainView.swift in Sources */,
