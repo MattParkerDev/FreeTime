@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-
 class UserData: ObservableObject {
     @Published var sleepHoursDaily: Double
     @Published var workHoursWeekly: Double
