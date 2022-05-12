@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PieChartView: View {
     @EnvironmentObject var userData: UserData
-    //@State private var pieSlices: [PieSliceData] = []  
     var body: some View {
         GeometryReader { geometry in
             ZStack {
