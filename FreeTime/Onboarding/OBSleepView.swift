@@ -36,5 +36,6 @@ struct OBSleepView: View {
 struct OBSleepView_Previews: PreviewProvider {
     static var previews: some View {
         OBSleepView()
+            .environmentObject(UserData())
     }
 }

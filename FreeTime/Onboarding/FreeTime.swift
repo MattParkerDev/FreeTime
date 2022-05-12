@@ -16,6 +16,7 @@ class UserData: ObservableObject {
     @Published var shouldShowOnboarding: Bool
     @Published var sleepHoursWeekly: Double
     @Published var freeHoursWeekly: Double
+    @Published var slicesArray: Array<PieSliceData>
     
     init() {
         self.sleepHoursDaily = UserDefaults.standard.double(forKey: "sleepHoursDaily")
@@ -27,15 +28,18 @@ class UserData: ObservableObject {
         else {
             self.shouldShowOnboarding = UserDefaults.standard.bool(forKey: "shouldShowOnboarding")
         }
-        self.sleepHoursWeekly = UserDefaults.standard.double(forKey: "sleepHoursDaily") * 7
+        self.sleepHoursWeekly = 0
         self.freeHoursWeekly = 0
+        self.slicesArray = []
         self.freeHoursWeekly = calcFreeTime()
+        self.sleepHoursWeekly = self.sleepHoursDaily * 7
     }
     func save() {
         UserDefaults.standard.set(sleepHoursDaily, forKey: "sleepHoursDaily")
         UserDefaults.standard.set(workHoursWeekly, forKey: "workHoursWeekly")
         UserDefaults.standard.set(choreHoursWeekly, forKey: "choreHoursWeekly")
         UserDefaults.standard.set(shouldShowOnboarding, forKey: "shouldShowOnboarding")
+        self.sleepHoursWeekly = sleepHoursDaily * 7
     }
     func calcFreeTime() -> Double {
         var freeHours: Double

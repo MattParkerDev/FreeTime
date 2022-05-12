@@ -10,6 +10,39 @@ import SwiftUI
 struct PieChartView: View {
     @EnvironmentObject var userData: UserData
     @State private var pieSlices: [PieSliceData] = []
+    fileprivate func dataGen() {
+        let maxTime: Double = 168
+        let sleepHours:Double = userData.sleepHoursWeekly
+        let workHours: Double = userData.workHoursWeekly
+        let choreHours:Double = userData.choreHoursWeekly
+        let freeTimeHours = maxTime - sleepHours - workHours - choreHours
+        
+        let percentages = [
+            ("Sleep", sleepHours, Color.blue),
+            ("Work", workHours, Color.red),
+            ("Chores", choreHours, Color.green),
+            ("Free Time", freeTimeHours, Color.yellow)
+        ].map {label, hours, colour  in
+            return (label, hours/maxTime, hours, colour)
+        }
+        var pieSlices: [PieSliceData] = []
+        var startAngle: Double = 0
+        for (label, percentage, hours, colour) in percentages {
+            let data = PieSliceData(
+                startAngle: Angle(degrees: startAngle),
+                endAngle: Angle(degrees: startAngle + percentage * 360),
+                text: label,
+                color: colour,
+                label: String(Int(round(percentage * 100))) + "%",
+                value: hours
+            )
+            pieSlices.append(data)
+            startAngle += percentage * 360
+        }
+        self.pieSlices = pieSlices
+        userData.slicesArray = pieSlices
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -28,34 +61,10 @@ struct PieChartView: View {
                 }
             }
             .onAppear{
-                let maxTime: Double = 168
-                let sleepHours:Double = userData.sleepHoursWeekly
-                let workHours: Double = userData.workHoursWeekly
-                let choreHours:Double = userData.choreHoursWeekly
-                let freeTimeHours = maxTime - sleepHours - workHours - choreHours
-                
-                let percentages = [
-                    ("Sleep", sleepHours, Color.blue),
-                    ("Work", workHours, Color.red),
-                    ("Chores", choreHours, Color.green),
-                    ("Free Time", freeTimeHours, Color.yellow)
-                ].map {label, hours, colour  in
-                    return (label, hours/maxTime, colour)
-                }
-                var pieSlices: [PieSliceData] = []
-                var startAngle: Double = 0
-                for (label, percentage, colour) in percentages {
-                    let data = PieSliceData(
-                        startAngle: Angle(degrees: startAngle),
-                        endAngle: Angle(degrees: startAngle + percentage * 360),
-                        text: label,
-                        color: colour,
-                        label: String(Int(round(percentage * 100))) + "%"
-                    )
-                    pieSlices.append(data)
-                    startAngle += percentage * 360
-                }
-                self.pieSlices = pieSlices
+                dataGen()
+            }
+            .onChange(of: userData.shouldShowOnboarding) { i in
+                dataGen()
             }
         }
     }

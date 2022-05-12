@@ -35,5 +35,6 @@ struct OBChoresView: View {
 struct OBChoresView_Previews: PreviewProvider {
     static var previews: some View {
         OBChoresView()
+            .environmentObject(UserData())
     }
 }

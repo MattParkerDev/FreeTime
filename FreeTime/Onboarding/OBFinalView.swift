@@ -15,7 +15,9 @@ struct OBFinalView: View {
             Text("Welcome to Free Time!")
             Spacer()
             Button(action: {
+                userData.save()
                 userData.shouldShowOnboarding = false
+                userData.save()
             }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)
@@ -24,7 +26,6 @@ struct OBFinalView: View {
             }
             .padding()
         }
-        .onDisappear(perform: userData.save)
     }
 }
 struct OBFinalView_Previews: PreviewProvider {

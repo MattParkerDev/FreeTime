@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PieSliceView: View {
+    @Environment(\.colorScheme) var colorScheme
     let pieSliceData: PieSliceData
     var midRadians: Double {
         return Double.pi / 2.0 - (pieSliceData.startAngle + pieSliceData.endAngle).radians / 2.0
@@ -28,11 +29,23 @@ struct PieSliceView: View {
                 }
                 .fill(pieSliceData.color)
                 
-                Text(pieSliceData.label)
-                    .position(
-                        x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(midRadians)),
-                        y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(midRadians))  
-                    )
+                if colorScheme == .dark {
+                    Text(pieSliceData.label)
+                        .position(
+                            x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(midRadians)),
+                            y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(midRadians))
+                        )
+                        .shadow(color: Color(UIColor.systemBackground), radius: 2)
+                } else {
+                    Text(pieSliceData.label)
+                        .position(
+                            x: geometry.size.width * 0.5 * CGFloat(1.0 + 0.78 * cos(midRadians)),
+                            y: geometry.size.height * 0.5 * CGFloat(1.0 - 0.78 * sin(midRadians))
+                        )
+                }
+                
+                
+                
             }
         }
         .aspectRatio(1, contentMode: .fit)
@@ -41,6 +54,6 @@ struct PieSliceView: View {
 
 struct PieSliceView_Previews: PreviewProvider {
     static var previews: some View {
-        PieSliceView(pieSliceData: PieSliceData(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 45.0), text: "Sleep", color: Color.blue, label: "40%"))
+        PieSliceView(pieSliceData: PieSliceData(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 45.0), text: "Sleep", color: Color.blue, label: "40%", value: 56.0))
     }
 }

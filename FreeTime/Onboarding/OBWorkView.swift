@@ -13,6 +13,7 @@ struct OBWorkView: View {
         VStack {
             Spacer()
             Text("Please enter how many hours you work per week. Please include travel time to and from work.")
+                .padding()
                 .navigationTitle("Work")
                 .navigationBarTitleDisplayMode(.large)
             TextField("Enter your work hours", value: $userData.workHoursWeekly, format: .number)
@@ -35,5 +36,6 @@ struct OBWorkView: View {
 struct OBWorkView_Previews: PreviewProvider {
     static var previews: some View {
         OBWorkView()
+            .environmentObject(UserData())
     }
 }

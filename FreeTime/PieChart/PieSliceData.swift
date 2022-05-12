@@ -15,4 +15,5 @@ struct PieSliceData: Identifiable {
     var text: String
     var color: Color
     var label: String
+    var value: Double
 }
