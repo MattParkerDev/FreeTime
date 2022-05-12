@@ -15,7 +15,6 @@ struct OBFinalView: View {
             Text("Welcome to Free Time!")
             Spacer()
             Button(action: {
-                userData.save()
                 userData.shouldShowOnboarding = false
                 userData.save()
             }) {Text("Get Started")
