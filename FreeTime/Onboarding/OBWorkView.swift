@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OBWorkView: View {
     @EnvironmentObject var userData: UserData
+    @State var input: String = ""
     var body: some View {
         VStack {
             Spacer()
@@ -16,8 +17,23 @@ struct OBWorkView: View {
                 .padding()
                 .navigationTitle("Work")
                 .navigationBarTitleDisplayMode(.large)
-            TextField("Enter your work hours", value: $userData.workHoursWeekly, format: .number)
-                .padding()
+            if #available(iOS 15.0, *) {
+                TextField("Enter your work hours", value: $userData.workHoursWeekly, format: .number)
+                    .padding()
+                    .keyboardType(.decimalPad)
+            } else {
+                TextField("Enter your work hours", text: $input)
+                    .padding()
+                    .keyboardType(.decimalPad)
+                    .onAppear {
+                        if  userData.workHoursWeekly != 0.0 {
+                            input = String(userData.workHoursWeekly)
+                        }
+                    }
+                    .onDisappear {
+                        userData.workHoursWeekly = Double(input) ?? 0.0
+                    }
+            }
             Spacer()
             Button(action: {}) {
                 NavigationLink(destination: OBChoresView()) {
