@@ -17,6 +17,7 @@ struct OBFinalView: View {
             Button(action: {
                 userData.shouldShowOnboarding = false
                 userData.save()
+                userData.pieDataGen()
             }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)

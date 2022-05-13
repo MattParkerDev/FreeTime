@@ -26,13 +26,6 @@ struct PieChartView: View {
                         .font(.title)
                 }
             }
-            .onAppear{
-                pieDataGen(userData: userData)
-                
-            }
-            .onChange(of: userData.shouldShowOnboarding) { i in
-                pieDataGen(userData: userData)
-            }
         }
     }
 }

@@ -32,6 +32,7 @@ class UserData: ObservableObject {
         self.slicesArray = []
         self.freeHoursWeekly = calcFreeTime()
         self.sleepHoursWeekly = self.sleepHoursDaily * 7
+        self.pieDataGen()
     }
     func save() {
         UserDefaults.standard.set(sleepHoursDaily, forKey: "sleepHoursDaily")
@@ -39,43 +40,42 @@ class UserData: ObservableObject {
         UserDefaults.standard.set(choreHoursWeekly, forKey: "choreHoursWeekly")
         UserDefaults.standard.set(shouldShowOnboarding, forKey: "shouldShowOnboarding")
         self.sleepHoursWeekly = sleepHoursDaily * 7
+        
     }
     func calcFreeTime() -> Double {
         var freeHours: Double
         freeHours = 168 - self.sleepHoursWeekly - self.workHoursWeekly - self.choreHoursWeekly
         return freeHours
     }
-}
-
-func pieDataGen(userData: UserData) {
-    let userData: UserData = userData
-    let maxTime: Double = 168
-    let sleepHours:Double = userData.sleepHoursWeekly
-    let workHours: Double = userData.workHoursWeekly
-    let choreHours:Double = userData.choreHoursWeekly
-    let freeTimeHours = maxTime - sleepHours - workHours - choreHours
-    
-    let percentages = [
-        ("Sleep", sleepHours, Color.blue),
-        ("Work", workHours, Color.red),
-        ("Chores", choreHours, Color.green),
-        ("Free Time", freeTimeHours, Color.yellow)
-    ].map {label, hours, colour  in
-        return (label, hours/maxTime, hours, colour)
+    func pieDataGen() {
+        let maxTime: Double = 168
+        let sleepHours:Double = self.sleepHoursWeekly
+        let workHours: Double = self.workHoursWeekly
+        let choreHours:Double = self.choreHoursWeekly
+        let freeTimeHours = maxTime - sleepHours - workHours - choreHours
+        
+        let percentages = [
+            ("Sleep", sleepHours, Color.blue),
+            ("Work", workHours, Color.red),
+            ("Chores", choreHours, Color.green),
+            ("Free Time", freeTimeHours, Color.yellow)
+        ].map {label, hours, colour  in
+            return (label, hours/maxTime, hours, colour)
+        }
+        var pieSlices: [PieSliceData] = []
+        var startAngle: Double = 0
+        for (label, percentage, hours, colour) in percentages {
+            let data = PieSliceData(
+                startAngle: Angle(degrees: startAngle),
+                endAngle: Angle(degrees: startAngle + percentage * 360),
+                text: label,
+                color: colour,
+                label: String(Int(round(percentage * 100))) + "%",
+                value: hours
+            )
+            pieSlices.append(data)
+            startAngle += percentage * 360
+        }
+        self.slicesArray = pieSlices
     }
-    var pieSlices: [PieSliceData] = []
-    var startAngle: Double = 0
-    for (label, percentage, hours, colour) in percentages {
-        let data = PieSliceData(
-            startAngle: Angle(degrees: startAngle),
-            endAngle: Angle(degrees: startAngle + percentage * 360),
-            text: label,
-            color: colour,
-            label: String(Int(round(percentage * 100))) + "%",
-            value: hours
-        )
-        pieSlices.append(data)
-        startAngle += percentage * 360
-    }
-    userData.slicesArray = pieSlices
 }
