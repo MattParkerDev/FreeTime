@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OBSleepView: View {
     @EnvironmentObject var userData: UserData
+    @State var input: String = ""
     var body: some View {
         VStack {
             Spacer()
@@ -16,8 +17,25 @@ struct OBSleepView: View {
                 .padding()
                 .navigationTitle("Sleep")
                 .navigationBarTitleDisplayMode(.large)
-            TextField("Enter your sleep Hours", value: $userData.sleepHoursDaily, format: .number)
-                .padding()
+            if #available(iOS 15.0, *) {
+                TextField("Enter your sleep Hours", value: $userData.sleepHoursDaily, format: .number)
+                    .padding()
+                    .keyboardType(.decimalPad)
+            } else {
+                TextField("Enter your sleep Hours", text: $input)
+                    .padding()
+                    .keyboardType(.decimalPad)
+                    .onAppear {
+                        if  userData.sleepHoursDaily != 0.0 {
+                            input = String(userData.sleepHoursDaily)
+                        }
+                    }
+                    .onDisappear {
+                        userData.sleepHoursDaily = Double(input) ?? 0.0
+                    }
+            }
+
+            
             Spacer()
             Button(action: {}) {
                 NavigationLink(destination: OBWorkView()) {
@@ -36,5 +54,6 @@ struct OBSleepView: View {
 struct OBSleepView_Previews: PreviewProvider {
     static var previews: some View {
         OBSleepView()
+            .environmentObject(UserData())
     }
 }

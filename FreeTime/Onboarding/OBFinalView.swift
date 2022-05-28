@@ -16,6 +16,8 @@ struct OBFinalView: View {
             Spacer()
             Button(action: {
                 userData.shouldShowOnboarding = false
+                userData.save()
+                userData.pieDataGen()
             }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)
@@ -24,7 +26,6 @@ struct OBFinalView: View {
             }
             .padding()
         }
-        .onDisappear(perform: userData.save)
     }
 }
 struct OBFinalView_Previews: PreviewProvider {
