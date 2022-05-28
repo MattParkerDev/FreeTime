@@ -10,18 +10,23 @@ import SwiftUI
 struct OBWelcomeView: View {
     @EnvironmentObject var userData: UserData
     @State private var animateGradient = false
+//    @State private var GradientPairs = [0: "topLeading",
+//                                        1: ".bottomLeading",
+//                                        2: ".bottomTrailing",
+//                                        4: ".topTrailing"]
     var body: some View {
         NavigationView {
             ZStack {
                 LinearGradient(
                     colors: [Color(#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)), Color(#colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1))],
+                    
                     startPoint: animateGradient ? .topLeading : .bottomLeading,
                     endPoint: animateGradient ? .bottomTrailing : .topTrailing
                 )
                     .ignoresSafeArea()
                     .onAppear {
-                        withAnimation(.linear(duration: 2.0).repeatForever(autoreverses: true)) {
-                            animateGradient.toggle()
+                        withAnimation(.linear(duration: 2.0).repeatForever(autoreverses: false)) {
+                            animateGradient = true
                         }
                     }
                 VStack {
@@ -32,10 +37,10 @@ struct OBWelcomeView: View {
                     Spacer()
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationBarHidden(true)
-                    Image(systemName: "clock")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 190, height: 190)
+//                    Image(systemName: "clock")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 190, height: 190)
                     animClockView()
                     Spacer()
                     Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget leo blandit, mattis est id, pretium diam.")
@@ -64,8 +69,6 @@ struct OBWelcomeView_Previews: PreviewProvider {
         
         Group {
             OBWelcomeView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro"))
-
         }
     }
 }
