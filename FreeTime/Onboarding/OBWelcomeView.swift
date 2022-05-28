@@ -12,11 +12,13 @@ struct OBWelcomeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Text("Welcome to Free Time!")
                     .bold()
                     .font(.system(size:28))
                 Spacer()
                     .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarHidden(true)
                 Image(systemName: "clock")
                     .resizable()
                     .scaledToFit()
