@@ -15,10 +15,12 @@ struct animClockView: View {
             Circle()
                 .strokeBorder(lineWidth: 16)
                 .frame(width: 200, height: 200)
+                .foregroundColor(Color.white)
             RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 20.0))
                 .trim(from: 0, to: 0.5)
                 .frame(width: 14, height: 140)
                 .rotationEffect(Angle(degrees: minuteHandAngle), anchor: .center)
+                .foregroundColor(Color.white)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         withAnimation(.linear(duration: 5.0).repeatForever(autoreverses: false)) {
@@ -30,6 +32,7 @@ struct animClockView: View {
                 .trim(from: 0, to: 0.5)
                 .frame(width: 14, height: 100)
                 .rotationEffect(Angle(degrees: hourHandAngle), anchor: .center)
+                .foregroundColor(Color.white)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now()) {
                         withAnimation(.linear(duration: 60.0).repeatForever(autoreverses: false)) {
@@ -39,6 +42,7 @@ struct animClockView: View {
                 }
             Circle()
                 .frame(width: 14, height: 14)
+                .foregroundColor(Color.white)
         }
         
     }
