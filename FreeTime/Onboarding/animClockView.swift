@@ -20,8 +20,10 @@ struct animClockView: View {
                 .frame(width: 14, height: 140)
                 .rotationEffect(Angle(degrees: minuteHandAngle), anchor: .center)
                 .onAppear {
-                    withAnimation(.linear(duration: 5.0).repeatForever(autoreverses: false)) {
-                        minuteHandAngle = 540.0
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        withAnimation(.linear(duration: 5.0).repeatForever(autoreverses: false)) {
+                            minuteHandAngle = 540.0
+                        }
                     }
                 }
             RoundedRectangle(cornerSize: CGSize(width: 8.0, height: 20.0))
@@ -29,8 +31,10 @@ struct animClockView: View {
                 .frame(width: 14, height: 100)
                 .rotationEffect(Angle(degrees: hourHandAngle), anchor: .center)
                 .onAppear {
-                    withAnimation(.linear(duration: 60.0).repeatForever(autoreverses: false)) {
-                        hourHandAngle = 360.0
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        withAnimation(.linear(duration: 60.0).repeatForever(autoreverses: false)) {
+                            hourHandAngle = 360.0
+                        }
                     }
                 }
             Circle()
