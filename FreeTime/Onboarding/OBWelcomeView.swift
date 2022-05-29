@@ -32,6 +32,7 @@ struct OBWelcomeView: View {
                     Text("Welcome to Free Time!")
                         .bold()
                         .font(.system(size:28))
+                        .foregroundColor(Color.white)
                     Spacer()
                         .navigationBarTitleDisplayMode(.inline)
                         .navigationBarHidden(true)
@@ -42,10 +43,12 @@ struct OBWelcomeView: View {
                         .padding(.trailing, 20)
                         .padding(.bottom, 20)
                         .multilineTextAlignment(.center)
+                        .foregroundColor(Color.white)
                     Text("This app allows you to calculate and visualise how much free time you have in a week.")
                         .padding(.leading, 20)
                         .padding(.trailing, 20)
                         .multilineTextAlignment(.center)
+                        .foregroundColor(Color.white)
                     Spacer()
                     Button(action: {}) {
                         NavigationLink(destination: OBSleepView()) {
