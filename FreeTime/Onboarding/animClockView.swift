@@ -51,5 +51,6 @@ struct animClockView: View {
 struct animClockView_Previews: PreviewProvider {
     static var previews: some View {
         animClockView()
+            .preferredColorScheme(.dark)
     }
 }
