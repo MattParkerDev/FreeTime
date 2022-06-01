@@ -18,11 +18,15 @@ struct OBChoresView: View {
                 .navigationTitle("Chores")
                 .navigationBarTitleDisplayMode(.large)
             if #available(iOS 15.0, *) {
-                TextField("Enter your chore hours", value: $userData.choreHoursWeekly, format: .number)
+                TextField("Chores", value: $userData.choreHoursWeekly, format: .number)
+                    .font(.system(size: 54))
+                    .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
             } else {
-                TextField("Enter your chore hours", text: $input)
+                TextField("Chores", text: $input)
+                    .font(.system(size: 54))
+                    .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
                     .onAppear {

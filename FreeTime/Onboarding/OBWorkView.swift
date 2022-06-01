@@ -18,11 +18,15 @@ struct OBWorkView: View {
                 .navigationTitle("Work")
                 .navigationBarTitleDisplayMode(.large)
             if #available(iOS 15.0, *) {
-                TextField("Enter your work hours", value: $userData.workHoursWeekly, format: .number)
+                TextField("work", value: $userData.workHoursWeekly, format: .number)
+                    .font(.system(size: 54))
+                    .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
             } else {
-                TextField("Enter your work hours", text: $input)
+                TextField("work", text: $input)
+                    .font(.system(size: 54))
+                    .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
                     .onAppear {
