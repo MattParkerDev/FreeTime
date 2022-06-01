@@ -25,7 +25,8 @@ struct MainView: View {
         }
         // Calls onboarding fullscreen cover on first run
         .fullScreenCover(isPresented: $userData.shouldShowOnboarding, content: {
-            OBWelcomeView()
+            OBNewWelcomeView()
+                .environmentObject(userData)
             })
         
     }

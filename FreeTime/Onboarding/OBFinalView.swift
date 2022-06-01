@@ -15,9 +15,9 @@ struct OBFinalView: View {
             Text("Welcome to Free Time!")
             Spacer()
             Button(action: {
-                userData.shouldShowOnboarding = false
                 userData.save()
                 userData.pieDataGen()
+                userData.shouldShowOnboarding = false
             }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)

@@ -39,14 +39,13 @@ struct OBWorkView: View {
                     }
             }
             Spacer()
-            Button(action: {}) {
-                NavigationLink(destination: OBChoresView()) {
+            Button(action: {userData.obTabSelection = 4}) {
                     Text("Next")
                         .frame(width: 300, height: 50)
                         .foregroundColor(Color.white)
                         .background(Color.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
+                
             }
             .padding()
         }

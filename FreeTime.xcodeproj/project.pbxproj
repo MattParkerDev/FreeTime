@@ -14,6 +14,7 @@
 		55168AAE27E73A30009AEF53 /* OBFinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55168AAD27E73A30009AEF53 /* OBFinalView.swift */; };
 		552F99CA2841BF7C009A5D90 /* animClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552F99C92841BF7C009A5D90 /* animClockView.swift */; };
 		55390C7A284742E40059949A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55390C79284742E40059949A /* GradientView.swift */; };
+		553F1A8C284781D600A1A340 /* OBNewWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F1A8B284781D600A1A340 /* OBNewWelcomeView.swift */; };
 		5563D76B27E6F69100AA8A0F /* FreeTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563D76A27E6F69100AA8A0F /* FreeTimeApp.swift */; };
 		5563D76D27E6F69100AA8A0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5563D76C27E6F69100AA8A0F /* HomeView.swift */; };
 		5563D76F27E6F69200AA8A0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5563D76E27E6F69200AA8A0F /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		55168AAD27E73A30009AEF53 /* OBFinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBFinalView.swift; sourceTree = "<group>"; };
 		552F99C92841BF7C009A5D90 /* animClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animClockView.swift; sourceTree = "<group>"; };
 		55390C79284742E40059949A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		553F1A8B284781D600A1A340 /* OBNewWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBNewWelcomeView.swift; sourceTree = "<group>"; };
 		5563D76727E6F69100AA8A0F /* FreeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5563D76A27E6F69100AA8A0F /* FreeTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTimeApp.swift; sourceTree = "<group>"; };
 		5563D76C27E6F69100AA8A0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		55168AAA27E72DC9009AEF53 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				553F1A8B284781D600A1A340 /* OBNewWelcomeView.swift */,
 				55168AA827E715D9009AEF53 /* OBWelcomeView.swift */,
 				55168AAB27E72F0C009AEF53 /* OBSleepView.swift */,
 				55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */,
@@ -204,6 +207,7 @@
 				558642E3282D426D00F083AD /* FreeTime.swift in Sources */,
 				5510B1EB282BD29F0016A409 /* PieLegendView.swift in Sources */,
 				5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */,
+				553F1A8C284781D600A1A340 /* OBNewWelcomeView.swift in Sources */,
 				55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */,
 				55390C7A284742E40059949A /* GradientView.swift in Sources */,
 				5563D77927E701D500AA8A0F /* MainView.swift in Sources */,

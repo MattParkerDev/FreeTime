@@ -16,6 +16,7 @@ class UserData: ObservableObject {
     @Published var sleepHoursWeekly: Double
     @Published var freeHoursWeekly: Double
     @Published var slicesArray: Array<PieSliceData>
+    @Published var obTabSelection: Int
     
     init() {
         self.sleepHoursDaily = UserDefaults.standard.double(forKey: "sleepHoursDaily")
@@ -30,6 +31,7 @@ class UserData: ObservableObject {
         self.sleepHoursWeekly = 0
         self.freeHoursWeekly = 0
         self.slicesArray = []
+        self.obTabSelection = 1
         self.freeHoursWeekly = calcFreeTime()
         self.sleepHoursWeekly = self.sleepHoursDaily * 7
         self.pieDataGen()
