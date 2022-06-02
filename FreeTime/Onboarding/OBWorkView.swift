@@ -9,52 +9,44 @@ import SwiftUI
 
 struct OBWorkView: View {
     @EnvironmentObject var userData: UserData
+    @Binding var activePage: Int
     @State var input: String = ""
+    @State var hasRun: Bool = false
     var body: some View {
         VStack {
-            Spacer()
-            Text("Please enter how many hours you work per week. Please include travel time to and from work.")
-                .padding()
-                .navigationTitle("Work")
-                .navigationBarTitleDisplayMode(.large)
-            if #available(iOS 15.0, *) {
-                TextField("work", value: $userData.workHoursWeekly, format: .number)
-                    .font(.system(size: 54))
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .keyboardType(.decimalPad)
-            } else {
-                TextField("work", text: $input)
-                    .font(.system(size: 54))
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .keyboardType(.decimalPad)
-                    .onAppear {
+            Text("How many hours you work per week, including travel time?")
+                .padding(.horizontal)
+                .padding(.vertical, 25)
+            
+            TextField("", text: $input)
+                .font(.system(size: 54))
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color(hue: 1.0, saturation: 0.0, brightness: 0.26)))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+                .keyboardType(.decimalPad)
+                .onAppear {
+                    if hasRun == false {
+                        hasRun = true
                         if  userData.workHoursWeekly != 0.0 {
                             input = String(userData.workHoursWeekly)
                         }
                     }
-                    .onDisappear {
-                        userData.workHoursWeekly = Double(input) ?? 0.0
-                    }
-            }
-            Spacer()
-            Button(action: {userData.obTabSelection = 4}) {
-                    Text("Next")
-                        .frame(width: 300, height: 50)
-                        .foregroundColor(Color.white)
-                        .background(Color.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-            }
-            .padding()
+                }
+                .onChange(of: activePage, perform: {_ in userData.workHoursWeekly = Double(input) ?? 0.0})
         }
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color(hue: 1.0, saturation: 0.0, brightness: 0.16))
+                .shadow(color: .black, radius: 18, x: 10, y: 10)
+        )
+        .padding()
     }
 }
 
 struct OBWorkView_Previews: PreviewProvider {
     static var previews: some View {
-        OBWorkView()
+        OBWorkView(activePage: .constant(2))
             .environmentObject(UserData())
     }
 }

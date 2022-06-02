@@ -9,15 +9,16 @@ import SwiftUI
 
 struct OBFinalView: View {
     @EnvironmentObject var userData: UserData
+    @Binding var activePage: Int
     var body: some View {
         VStack {
             Spacer()
             Text("Welcome to Free Time!")
             Spacer()
             Button(action: {
+                userData.shouldShowOnboarding = false
                 userData.save()
                 userData.pieDataGen()
-                userData.shouldShowOnboarding = false
             }) {Text("Get Started")
                     .frame(width: 300, height: 50)
                     .foregroundColor(Color.white)
@@ -30,6 +31,7 @@ struct OBFinalView: View {
 }
 struct OBFinalView_Previews: PreviewProvider {
     static var previews: some View {
-        OBFinalView()
+        OBFinalView(activePage: .constant(4))
+            .environmentObject(UserData())
     }
 }
