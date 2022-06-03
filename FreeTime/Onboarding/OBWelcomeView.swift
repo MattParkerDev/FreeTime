@@ -9,48 +9,32 @@ import SwiftUI
 
 struct OBWelcomeView: View {
     @EnvironmentObject var userData: UserData
+    @Binding var activePage: Int
     var body: some View {
-        NavigationView {
-            ZStack {
-                GradientView()
-                VStack {
-                    Spacer()
-                    Text("Welcome to Free Time!")
-                        .bold()
-                        .font(.system(size:28))
-                        .foregroundColor(Color.white)
-                    Spacer()
-                        .navigationBarTitleDisplayMode(.inline)
-                        .navigationBarHidden(true)
-                    animClockView()
-                    Spacer()
-                    Text("After working, sleeping and doing your chores, just how much time is left to relax and recharge? \n\nThis app allows you to calculate and visualise how much free time you have in a week.")
-                        .padding(.leading, 15)
-                        .padding(.trailing, 15)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color.white)
-                    Spacer()
-                    Button(action: {}) {
-                        NavigationLink(destination: OBSleepView()) {
-                            Text("Next")
-                                .frame(width: 300, height: 50)
-                                .foregroundColor(Color.white)
-                                .background(Color.blue)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }
-                    }
-                    .padding()
-                }
-            }
+        VStack {
+            Spacer()
+            Text("Welcome to Free Time!")
+                .bold()
+                .font(.system(size:28))
+                .foregroundColor(Color.white)
+            Spacer()
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
+            animClockView()
+            Spacer()
+            Text("After working, sleeping and doing your chores, just how much time is left to relax and recharge? \n\nThis app allows you to calculate and visualise how much free time you have in a week.")
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.white)
+            Spacer()
         }
     }
 }
 
 struct OBWelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        
-        Group {
-            OBWelcomeView()
-        }
+        OBWelcomeView(activePage: .constant(0))
+            .preferredColorScheme(.dark)
     }
 }
