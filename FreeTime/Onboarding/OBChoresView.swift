@@ -14,7 +14,7 @@ struct OBChoresView: View {
     @State var hasRun: Bool = false
     var body: some View {
         VStack {
-            Text("How many hours per week you spend doing chores such as grocery shopping or washing?")
+            Text("How many hours per week do you spend doing chores such as grocery shopping or washing?")
                 .padding(.horizontal)
                 .padding(.vertical, 25)
             
@@ -51,6 +51,7 @@ struct OBChoresView: View {
 struct OBChoresView_Previews: PreviewProvider {
     static var previews: some View {
         OBChoresView(activePage: .constant(3))
+            .preferredColorScheme(.dark)
             .environmentObject(UserData())
     }
 }

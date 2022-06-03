@@ -14,7 +14,7 @@ struct OBSleepView: View {
     @State var hasRun: Bool = false
     var body: some View {
         VStack {
-            Text("How much sleep you get on average per night?")
+            Text("How much sleep do you get on average per night?")
                 .padding(.horizontal)
                 .padding(.vertical, 25)
             

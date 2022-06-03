@@ -14,7 +14,7 @@ struct OBWorkView: View {
     @State var hasRun: Bool = false
     var body: some View {
         VStack {
-            Text("How many hours you work per week, including travel time?")
+            Text("How many hours do you work per week, including travel time?")
                 .padding(.horizontal)
                 .padding(.vertical, 25)
             
@@ -51,6 +51,7 @@ struct OBWorkView: View {
 struct OBWorkView_Previews: PreviewProvider {
     static var previews: some View {
         OBWorkView(activePage: .constant(2))
+            .preferredColorScheme(.dark)
             .environmentObject(UserData())
     }
 }
