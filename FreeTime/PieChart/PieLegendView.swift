@@ -10,7 +10,7 @@ import SwiftUI
 struct PieLegendView: View {
     @EnvironmentObject var userData: UserData
     var body: some View {
-        VStack {
+        VStack(spacing: 6) {
             ForEach(userData.slicesArray) { slice in
                 HStack {
                     RoundedRectangle(cornerRadius: 5.0)
@@ -26,8 +26,13 @@ struct PieLegendView: View {
                 }
             }
         }
-        .padding(.leading)
-        .padding(.trailing)
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color(hue: 1.0, saturation: 0.0, brightness: 0.16))
+                .shadow(color: .black, radius: 18, x: 10, y: 10)
+        )
+        
     }
 }
 
@@ -35,5 +40,6 @@ struct PieLegendView_Previews: PreviewProvider {
     static var previews: some View {
         PieLegendView()
             .environmentObject(UserData())
+            .preferredColorScheme(.dark)
     }
 }

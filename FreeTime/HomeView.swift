@@ -10,18 +10,26 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var userData: UserData
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                PieChartView()
-                    .padding()
-                    .aspectRatio(1, contentMode: .fit)
-                PieLegendView()
+        VStack(spacing: 0) {
+            Spacer()
+            HStack {
+                Text("Home")
+                    .bold()
+                    .font(.largeTitle)
+                    .padding(.leading)
                 Spacer()
             }
-            .navigationTitle("Home")
-
+            PieChartView()
+                .padding(.horizontal)
+                .padding(.top, 8)
+            Spacer()
+            PieLegendView()
+                .padding(.horizontal)
+                .padding(.vertical, 10)
+            Spacer()
         }
+        .background(GradientView())
+        
     }
 }
 
