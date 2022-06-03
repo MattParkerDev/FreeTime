@@ -44,7 +44,6 @@ struct animClockView: View {
                 .frame(width: 14, height: 14)
                 .foregroundColor(Color.white)
         }
-        
     }
 }
 

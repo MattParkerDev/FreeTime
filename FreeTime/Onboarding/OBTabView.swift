@@ -19,7 +19,6 @@ struct OBTabView: View {
                 OBSleepView(activePage: $activePage)
                     .environmentObject(userData)
                     .tag(1)
-                    .transition(.slide)
                 OBWorkView(activePage: $activePage)
                     .environmentObject(userData)
                     .tag(2)
@@ -33,23 +32,36 @@ struct OBTabView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .animation(.easeInOut, value: activePage)
             .transition(.slide)
-            Button(action: {
-                activePage += 1
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    hideKeyboard()
+            if activePage == 4 {
+                Button(action: {
+                    userData.shouldShowOnboarding = false
+                    userData.save()
+                    userData.pieDataGen()
+                }) {
+                    Text("Get Started")
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(Color.white)
+                        .background(Color.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
-            }) {
-                Text("Next")
-                    .frame(width: 300, height: 50)
-                    .foregroundColor(Color.white)
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                
+                .padding()
+            } else {
+                Button(action: {
+                    activePage += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        hideKeyboard()
+                    }
+                }) {
+                    Text("Next")
+                        .frame(width: 300, height: 50)
+                        .foregroundColor(Color.white)
+                        .background(Color.blue)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+                .padding()
             }
-            .padding()
         }
         .background(GradientView())
-        
     }
 }
 

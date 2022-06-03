@@ -33,7 +33,11 @@ struct OBSleepView: View {
                         }
                     }
                 }
-                .onChange(of: activePage, perform: {_ in userData.sleepHoursDaily = Double(input) ?? 0.0})
+                .onChange(of: activePage, perform: {_ in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        userData.sleepHoursDaily = Double(input) ?? 0.0
+                    }
+                })
         }
         .background(
             RoundedRectangle(cornerRadius: 10)

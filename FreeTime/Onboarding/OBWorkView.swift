@@ -33,7 +33,11 @@ struct OBWorkView: View {
                         }
                     }
                 }
-                .onChange(of: activePage, perform: {_ in userData.workHoursWeekly = Double(input) ?? 0.0})
+                .onChange(of: activePage, perform: {_ in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        userData.workHoursWeekly = Double(input) ?? 0.0
+                    }
+                })
         }
         .background(
             RoundedRectangle(cornerRadius: 10)
