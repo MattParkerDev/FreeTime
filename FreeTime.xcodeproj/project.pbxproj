@@ -23,7 +23,7 @@
 		5575CCCA28279F1A005B2550 /* PieSliceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575CCC928279F1A005B2550 /* PieSliceData.swift */; };
 		5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575CCCB28279F97005B2550 /* PieChartView.swift */; };
 		5577C3F327FBE160006DB757 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5577C3F227FBE160006DB757 /* PieSliceView.swift */; };
-		558642E3282D426D00F083AD /* FreeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558642E2282D426D00F083AD /* FreeTime.swift */; };
+		558642E3282D426D00F083AD /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558642E2282D426D00F083AD /* UserData.swift */; };
 		55DCBC3B27EDDF8200A45E0D /* OBWorkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */; };
 		55DCBC3D27EDE00A00A45E0D /* OBChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +46,7 @@
 		5575CCC928279F1A005B2550 /* PieSliceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceData.swift; sourceTree = "<group>"; };
 		5575CCCB28279F97005B2550 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		5577C3F227FBE160006DB757 /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
-		558642E2282D426D00F083AD /* FreeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeTime.swift; sourceTree = "<group>"; };
+		558642E2282D426D00F083AD /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		55DCBC3A27EDDF8200A45E0D /* OBWorkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBWorkView.swift; sourceTree = "<group>"; };
 		55DCBC3C27EDE00A00A45E0D /* OBChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBChoresView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +96,7 @@
 		5563D76927E6F69100AA8A0F /* FreeTime */ = {
 			isa = PBXGroup;
 			children = (
-				558642E2282D426D00F083AD /* FreeTime.swift */,
+				558642E2282D426D00F083AD /* UserData.swift */,
 				5563D76A27E6F69100AA8A0F /* FreeTimeApp.swift */,
 				5563D77827E701D500AA8A0F /* MainView.swift */,
 				5563D76C27E6F69100AA8A0F /* HomeView.swift */,
@@ -204,7 +204,7 @@
 			files = (
 				5563D76D27E6F69100AA8A0F /* HomeView.swift in Sources */,
 				55168AA727E704E5009AEF53 /* SettingsView.swift in Sources */,
-				558642E3282D426D00F083AD /* FreeTime.swift in Sources */,
+				558642E3282D426D00F083AD /* UserData.swift in Sources */,
 				5510B1EB282BD29F0016A409 /* PieLegendView.swift in Sources */,
 				5575CCCC28279F97005B2550 /* PieChartView.swift in Sources */,
 				553F1A8C284781D600A1A340 /* OBTabView.swift in Sources */,
