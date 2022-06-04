@@ -9,6 +9,9 @@ import SwiftUI
 
 // The main view of FreeTime, using nagivation tab view
 struct MainView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(hue: 1.0, saturation: 0.0, brightness: 0.16, alpha: 0.5)
+    }
     @EnvironmentObject var userData: UserData
     var body: some View {
         TabView {
